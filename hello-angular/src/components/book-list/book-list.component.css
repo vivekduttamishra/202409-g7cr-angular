@@ -1,0 +1,22 @@
+h1{
+    color:brown;
+}
+
+
+table{
+    width:90%;
+    border:1px solid gray;
+}
+
+th{
+    background-color: black;
+    color:coral;
+}
+td{
+    border:1px solid gray;
+}
+
+img{
+    
+    box-shadow: -2px -2px 2px  gray;
+}

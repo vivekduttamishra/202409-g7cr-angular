@@ -1,0 +1,48 @@
+ 
+<h4 class="text-danger">{{message}}</h4>
+<field-set title="User Login">
+
+   
+    <form  #loginForm="ngForm" (ngSubmit)="handleLogin()" novalidate >
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+
+
+            <input type="email" 
+                name="email"  
+                [(ngModel)]="loginInfo.email"
+                #email="ngModel"
+                required email
+                class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
+
+
+            <div [hidden]="email.errors===null" id="emailHelp" class="form-text text-danger">
+                {{email.errors|json}}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" 
+                    name="password" #password="ngModel" 
+                    [(ngModel)]="loginInfo.password" 
+                    required minlength="6" no-space
+                    
+                    class="form-control"
+                id="exampleInputPassword1">
+
+                <div [hidden]="password.errors===null" id="passwordHelp" class="form-text text-danger">
+                    {{password.errors|json}}
+                </div>
+        </div>
+
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+
+        
+       
+        <p class='text-danger'>{{error}}</p>
+        <p class='text-success'>{{success}}</p>
+
+    </form>
+
+</field-set>

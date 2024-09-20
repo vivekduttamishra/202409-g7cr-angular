@@ -1,0 +1,87 @@
+### get all authors
+GET http://localhost:8000/api/authors
+
+
+
+
+
+### ADDING INVALID AUTHOR INFO
+POST http://localhost:8000/api/authors
+CONTENT-TYPE: application/json
+
+{    
+    "name": 101,
+    "biography":"Hi"
+}
+
+
+### get author vivek-dutta-mishra
+GET http://localhost:8000/api/authors/vivek-dutta-mishra
+
+
+### get author alexandre-dumas
+GET http://localhost:8000/api/authors/alexandre-dumas
+
+### get author with invalid id
+GET http://localhost:8000/api/authors/invalid-id
+
+
+### update author vivek-dutta-mishra
+PUT http://localhost:8000/api/authors/vivek-dutta-mishra
+
+
+
+
+### get books by author vivek-dutta-mishra
+GET http://localhost:8000/api/authors/vivek-dutta-mishra/books
+
+
+### Operations on Invalid Id
+
+### get book with invalid id
+GET http://localhost:8000/api/authors/invalid-id
+
+### delete book with invalid id
+DELETE http://localhost:8000/api/authors/t3
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaXRAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJpYXQiOjE3MjY3Mzc1OTEsImV4cCI6MTcyNjc0MTE5MX0.ByRZ9UuQM3vAtLYgZtSim0pJqI9OHaKJjYUEoyx0EvM
+
+### Operatiosn against a new author alexandre-dumas
+
+
+
+### Create author alexandre-dumas
+
+POST http://localhost:8000/api/authors
+CONTENT-TYPE: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpdmVrQGNvbmNlcHRhcmNoaXRlY3QuaW4iLCJyb2xlcyI6WyJVU0VSIl0sImlhdCI6MTcyNjEzMDE0NCwiZXhwIjoxNzI2MTMzNzQ0fQ.eXFd7v0t4JzyVY3v_1ckzZMG0JGkUi4rMc1n0wo69qo
+
+{
+    "id":"t5",
+    "name":"Alexandre Dumas",
+    "biography":"One of the greatest classic author of French and English. His book The Count of Monte Cristo is specially famous.",
+    "photo":"dumas.png"
+}
+
+### get author alexandre-dumas
+GET http://localhost:8000/api/authors/alexandre-dumas
+
+
+
+### Update author alexandre-dumas
+PUT http://localhost:8000/api/authors/alexandre-dumas
+CONTENT-TYPE: application/json
+
+{
+    
+    "name":"Alexandre Dumas",
+    "biography":"Biography updated",
+    "photo":"dumas_updated.png",
+    "tags":["french","english","classic","best-seller"]
+}
+
+
+### delete author alexandre-dumas
+DELETE http://localhost:8000/api/authors/alexandre-dumas
+
+
+

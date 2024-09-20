@@ -1,0 +1,57 @@
+<h1>Our Recommendion of {{books.length}} Books</h1>
+
+
+<input 
+
+    type="checkbox"
+    [(ngModel)] = 'showImages'
+    
+/> Show Images
+
+<table >
+    <thead>
+        <tr>
+            <th  [hidden]='!showImages'> 
+                Cover
+                <!-- <ca-range 
+                (valueChange)="handleHeightUpdate($event)" 
+                [value]="imageHeight" 
+                [min]="80" [max]="200" /> -->
+
+                <ca-range                  
+                 [(value)]="imageHeight" 
+                [min]="80" [max]="200" />
+            </th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Rating</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td [hidden]='!showImages'>
+
+                <img *ngIf="showImages" 
+                
+                [style.height.px]="imageHeight"
+
+                src="{{book.cover}}" 
+                alt="{{book.title}}"/>
+
+
+            </td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.rating}}</td>
+            <td>{{book.price|currency:'INR'}}</td>
+            <td>
+                <button 
+                [routerLink]="['/books',book.id]"
+                class="btn btn-primary">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

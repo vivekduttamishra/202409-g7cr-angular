@@ -1,0 +1,51 @@
+
+<h2>Add New Author </h2>
+
+{{authorForm.value|json}}
+{{authorForm.valid}}
+
+<form [formGroup]="authorForm" (submit)="handleSubmit()">
+    <div class="mb-3">
+      <label for="id" class="form-label">Author Id</label>
+      <input formControlName="id" type="text" id="id" class="form-control"  >
+      
+      <div [hidden]="id.valid"  class="text-danger form-text">
+        {{id.errors|json}}
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input formControlName="name" type="text" id="name" class="form-control"  >
+      <div [hidden]="name.valid"  class="text-danger form-text">
+        {{name.errors|json}}
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="photo" class="form-label">Photo</label>
+      <input formControlName="photo"  type="text" id="photo" class="form-control"  >
+      <div [hidden]="photo.valid"  class="text-danger form-text">
+        {{photo.errors|json}}
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="biography" class="form-label">Biography</label>
+      <textarea formControlName="biography"  type="text" id="biography" class="form-control"  ></textarea>
+      <div [hidden]="biography.valid"  class="text-danger form-text">
+        {{biography.errors|json}}
+      </div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="tags" class="form-label">Tags</label>
+      <input formControlName="tags"  type="text" id="tags" class="form-control"  >
+      <div [hidden]="tags.valid"  class="text-danger form-text">
+        {{tags.errors|json}}
+      </div>
+    </div>
+    
+      
+    <button [disabled]="authorForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+  </form>

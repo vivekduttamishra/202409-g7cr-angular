@@ -1,0 +1,43 @@
+<h1>Our Recommendion of {{books.length}} Books</h1>
+
+
+<button (click)="toggleImages()" >
+    {{showImages?"Hide":"Show"}} Images
+</button>
+
+<table >
+    <thead>
+        <tr>
+            <th  [hidden]='!showImages'> 
+                Cover
+                <ca-range (valueChange)="handleHeightUpdate($event)" [value]="imageHeight" 
+                    
+                [min]="80" [max]="200" />
+            </th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Rating</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td [hidden]='!showImages'>
+
+                <img *ngIf="showImages" 
+                
+                [style.height.px]="imageHeight"
+
+                src="{{book.cover}}" 
+                alt="{{book.title}}"/>
+
+
+            </td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.rating}}</td>
+            <td>{{book.price|currency:'INR'}}</td>
+        </tr>
+    </tbody>
+</table>
+

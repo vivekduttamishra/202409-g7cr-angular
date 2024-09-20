@@ -1,0 +1,16 @@
+<h2>Our Recommendations</h2>
+
+<div class="row">
+    
+    @if(!loaded){
+        <p class="text-primary">Loading...</p>
+    }
+    
+   @for(book of books;track book.id){
+    <p>{{book.title}}</p>
+   }@empty {
+    <h4>Please wait...</h4>
+   }
+    
+
+</div>

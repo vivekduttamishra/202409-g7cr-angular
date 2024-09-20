@@ -1,0 +1,14 @@
+<h2>Author List</h2>
+
+@if(errorCode===0){
+    <h4 class="text-danger">Unable to fetch the data</h4>
+    <button (click)="handleFetchAuthors()" class="btn btn-primary">Retry</button>
+}@else {
+
+    @for(author of authors; track author.id){
+        <p class="pointer" [routerLink]="['/authors',author.id]">{{author.name}}</p>
+    }@empty {
+        <h4 class="text-primary">Loading...</h4>
+    }
+}
+

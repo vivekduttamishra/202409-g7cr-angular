@@ -1,0 +1,108 @@
+### GET ALL USERS WITHOUT VALID HEADER
+GET http://localhost:8000/api/users
+
+### GET ALL USERS WITHOUT NORMAL HEADER
+
+GET http://localhost:8000/api/users
+### GET ALL USERS WITHOUT ADMIN HEADER
+
+GET http://localhost:8000/api/users
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbmpheUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiTU9ERVJBVE9SIl0sImlhdCI6MTcyNjEzMTA3NywiZXhwIjoxNzI2MTM0Njc3fQ.cFYQ69TmRo4ziK2Wu6HWZytZXisIbKbNAR_RikL_Mfs
+
+
+### REGISTER USER VIVEK DUTTA MISHRA
+POST http://localhost:8000/api/users
+CONTENT-TYPE: application/json
+
+{
+    "name":"Vivek Dutta Mishra",
+    "email":"vivek@conceptarchitect.in",
+    "photo":"https://pbs.twimg.com/profile_images/1393255566928015360/i9qVt4oI_400x400.jpg",
+    "password":"p@ss#1",
+    "roles":["admin","author"]
+}
+
+### REGISTER USER SANJAY
+POST http://localhost:8000/api/users
+CONTENT-TYPE: application/json
+
+{
+    "name":"Sanjay Mall",
+    "email":"sanjay@gmail.com",
+    "password":"p@ss#1",
+    "photo":"https://randomuser.me/api/portraits/men/40.jpg",
+    "roles":["admin","author"]
+}
+### REGISTER NORMAL USER
+POST http://localhost:8000/api/users
+CONTENT-TYPE: application/json
+
+{
+    "name":"Amit Singh",
+    "email":"amit@gmail.com",
+    "password":"p@ss#1",
+    "photo":"https://randomuser.me/api/portraits/men/44.jpg",
+    "roles":["admin","author"]
+}
+
+
+### REGISTER USER SHIVANSHI
+POST http://localhost:8000/api/users
+CONTENT-TYPE: application/json
+
+{
+    "name":"Shivanshi",
+    "email":"shivanshi@gmail.com",
+    "password":"p@ss#1",
+    "photo":"https://randomuser.me/api/portraits/women/66.jpg",
+    "roles":["admin","author"]
+}
+
+
+### LOGIN ADMIN USER
+POST http://localhost:8000/api/users/login
+CONTENT-TYPE: application/json
+
+{
+    "email":"vivek@conceptarchitect.in",
+    "password":"p@ss#1"
+}
+
+### LOGIN MODERATOR USER
+POST http://localhost:8000/api/users/login
+CONTENT-TYPE: application/json
+
+{
+    "email":"sanjay@gmail.com",
+    "password":"p@ss#1"
+}
+
+### LOGIN ROOT USER
+POST http://localhost:8000/api/users/login
+CONTENT-TYPE: application/json
+
+{
+    "email":"shivanshi@gmail.com",
+    "password":"p@ss#1"
+}
+
+### LOGIN INVALID EMAIL
+POST http://localhost:8000/api/users/login
+CONTENT-TYPE: application/json
+
+{
+    "email":"vivek@wrongemail.com",
+    "password":"p@ss#1"
+}
+
+
+### LOGIN INVALID PASSWORD
+POST http://localhost:8000/api/users/login
+CONTENT-TYPE: application/json
+
+{
+    "email":"vivek@conceptarchitect.in",
+    "password":"wrong@pass"
+}
+
+

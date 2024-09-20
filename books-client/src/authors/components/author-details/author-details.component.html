@@ -1,0 +1,25 @@
+
+@if(id){
+
+    @if(errorCode==0){
+        <h2>Error fetching details. server unavailable</h2>
+        <button class="btn btn-danger" (click)="fetchAuthorById(id)">Retry</button>"
+    }@else if(errorCode===404){
+        <not-found title="Author Not Found" message="Invalid Author Id '{{id}}'"/>
+    }@else if(!author){
+        <h4 class="text-primary">loading...</h4>
+    }@else {
+        <h2>{{author.name}}</h2>
+        <div class="row">
+            <div class="col col-12"><img [src]='author.photo' [alt]='author.name'/></div>
+            <div class="col col-12">
+                <h3>Biography</h3>
+                <p>{{author.biography|blurb}}</p>
+            </div>
+        </div>
+    }
+
+
+
+}
+<p>Fetching author {{id}}</p>

@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Login</h2>
+
+    <p class="text-danger">{{error}}</p>
+    
+    <h4 class="text-success">{{success}}</h4>
+
+    <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="text" id="email" class="form-control" [(ngModel)]="email" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" id="password" class="form-control" [(ngModel)]="password" />
+
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Role</label>
+        <select [(ngModel)]="role" class="form-control">
+            <option>Admin</option>
+            <option>Author</option>
+            <option>User</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <p>
+            Remember Me <input type="checkbox" [(ngModel)]="rememberMe" />
+        </p>
+    </div>
+
+    <button class="form-control" (click)="handleLogin()">Login</button>
+</div>

@@ -1,0 +1,34 @@
+<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img [src]="userPhoto" [alt]="userName" />  
+          {{userName}}
+        </a>
+
+        <ul class="dropdown-menu">
+          @if(!user){
+
+            <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+            <li><a class="dropdown-item" routerLink="/register">Register</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" routerLink="/benefits">Membership Benefits</a></li>
+
+          }@else {
+            <li><a class="dropdown-item" routerLink="/users/profile">Profile</a></li>
+            <li><a class="dropdown-item" routerLink="/users/bookshelf">Book Shelf</a></li>
+            <li><hr class="dropdown-divider"></li>
+
+            @if(user.roles.includes('admin')){
+              <li><a class="dropdown-item" routerLink="/admin/users">User Management</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/books">Book Management</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/authors">Author Management</a></li>
+              <li><hr class="dropdown-divider"></li>
+
+            }
+            
+            <li><a class="dropdown-item" (click)="handleLogout()">Logout</a></li>
+          }
+        </ul>
+      </li>
+      
+</ul>
